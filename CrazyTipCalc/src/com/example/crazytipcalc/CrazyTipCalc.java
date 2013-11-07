@@ -5,9 +5,16 @@ import android.app.Activity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Chronometer;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 public class CrazyTipCalc extends Activity {
 	
@@ -24,6 +31,29 @@ public class CrazyTipCalc extends Activity {
 	EditText finalBillET;
 	
 	SeekBar tipSeekBar;
+	
+	private int[] checklistValues = new int[12];
+	
+	CheckBox friendlyCheckBox;
+	CheckBox specialsCheckBox;
+	CheckBox opinionCheckBox;
+	
+	RadioGroup availableRadioGroup;
+	RadioButton availableBadRadio;
+	RadioButton availableOkRadio;
+	RadioButton availableGoodRadio;
+	
+	Spinner problemsSpinner;
+	
+	Button startChronometerButton;
+	Button pauseChronometerButton;
+	Button resetChronometerButton;
+	
+	Chronometer timeWaitingChronometer;
+	
+	long secondsYouWaited = 0;
+	
+	TextView timeWatingTextView;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +78,34 @@ public class CrazyTipCalc extends Activity {
         tipSeekBar.setOnSeekBarChangeListener(tipSeekBarChangeListener);
         
         billBeforeTipET.addTextChangedListener(billBeforeTipListener);
+        
+        friendlyCheckBox = (CheckBox) findViewById(R.id.friendlyCheckBox);
+        specialsCheckBox = (CheckBox) findViewById(R.id.specialsCheckBox);
+        opinionCheckBox = (CheckBox) findViewById(R.id.opinionCheckBox);
+        
+        setUpIntroCheckBoxes();
+        
+        availableRadioGroup = (RadioGroup) findViewById(R.id.availableRadioGroup);
+        availableBadRadio = (RadioButton) findViewById(R.id.availableBadRadio);
+        availableOkRadio = (RadioButton) findViewById(R.id.availableOkRadio);
+        availableGoodRadio = (RadioButton) findViewById(R.id.availableGoodRadio);
+        
+        addChangeListenersToRadios();
+        
+        problemsSpinner = (Spinner) findViewById(R.id.problemSpinner);
+        
+        addItemSelectedListenerToSpinner();
+        
+        startChronometerButton = (Button) findViewById(R.id.startChronometerButton);
+        pauseChronometerButton = (Button) findViewById(R.id.pauseChronometerButton);
+        resetChronometerButton = (Button) findViewById(R.id.resetChronometerButton);
+        
+        setButtonOnClickListeners();
+        
+        timeWaitingChronometer = (Chronometer) findViewById(R.id.timeWaitingChronometer);
+        
+        timeWatingTextView = (TextView) findViewById(R.id.timeWaitingTextView);
+        
     }
     
     private TextWatcher billBeforeTipListener = new TextWatcher() {
