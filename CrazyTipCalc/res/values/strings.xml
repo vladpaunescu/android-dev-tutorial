@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CrazyTipCalc</string>
+    <string name="action_settings">Settings</string>
+    <string name="bill_text_view">Bill</string>
+    <string name="bill_edit_text">0.0</string>
+    <string name="tip_text_view">Tip</string>
+    <string name="tip_edit_text">.15</string>
+    
+    <string name="final_text_view">Final Bill</string>
+    <string name="final_bill_edit_text">.15</string>
+    
+    <string name="change_tip_text_view">Tip </string>
+
+</resources>
