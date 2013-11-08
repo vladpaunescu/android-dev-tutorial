@@ -179,14 +179,6 @@
         android:layout_marginTop="18dp"
         android:text="@string/time_wating_text_view" />
 
-    <Chronometer
-        android:id="@+id/timeWaitingChronometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/specialsCheckBox"
-        android:layout_alignTop="@+id/timeWaitingTextView"
-        android:text="Chronometer" />
-
     <Button
         android:id="@+id/resetChronometerButton"
         style="?android:attr/buttonStyleSmall"
@@ -215,5 +207,13 @@
         android:layout_alignBottom="@+id/startChronometerButton"
         android:layout_toRightOf="@+id/startChronometerButton"
         android:text="@string/pause_chronometer_button" />
+
+    <Chronometer
+        android:id="@+id/timeWaitingChronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/finalBillTextView"
+        android:layout_alignTop="@+id/timeWaitingTextView"
+        android:text="Chronometer" />
 
 </RelativeLayout>
