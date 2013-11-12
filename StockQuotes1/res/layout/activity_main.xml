@@ -1,0 +1,130 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tableLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:stretchColumns="yes"
+    tools:context=".MainActivity" >
+
+    <TableRow
+        android:id="@+id/tableRow0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/enterSymbolTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stock_symbol" />
+
+        <!-- android:ems Defines the text size based off of the 
+        specified point size 
+        
+        android:layout_weight Defines how much of the containing
+        area is taken up by this component. Because there is no
+        other component by setting it for 1 that means it takes 
+        up all available space. If you had 2 components and set 
+        one at 2 and the other at one, the first would take up
+        2/3rds of the space and the second would get the last 1/3rd-->
+        
+        <EditText
+            android:id="@+id/stockSymbolEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_weight="1" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/enterStockSymbolButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_stock_symbol" />
+        
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/egg_shell" >
+
+        <!-- android:layout_span Defines how many columns 
+        this component should take up in the table row 
+        
+        android:gravity Defines if a component is centered
+        right or left justified and more. Look here for all
+        available options 
+        http://developer.android.com/reference/android/view/Gravity.html
+        -->
+        
+        <TextView
+            android:id="@+id/stockSymbolTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:text="@string/stock_symbol_list"
+            android:textColor="@color/black"
+            android:textSize="@dimen/stock_list_text_size" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/egg_shell" >
+
+        <!-- A ScrollView is a scrollable box that contains
+        other components that can be added dynamically. The
+        ScrollView allows the user to scroll through components
+        that can't fit on the users screen -->
+        
+        <ScrollView
+            android:id="@+id/stockScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:padding="5dp" >
+
+            <!-- android:stretchColumns Defines that you want 
+            this component to expand in width to fit any extra 
+            space -->
+            
+            <TableLayout
+                android:id="@+id/stockTableScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:stretchColumns="yes" >
+            </TableLayout>
+        </ScrollView>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/deleteStocksButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_all_symbols"
+            android:layout_span="2" 
+            android:layout_weight="1" />
+
+    </TableRow>
+
+</TableLayout>
